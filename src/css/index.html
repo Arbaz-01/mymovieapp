@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Nxtseries</title>
+    <style>
+        .whole {
+    display: flex;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+    /* background-color: rgb(39, 39, 39); */
+ }
+
+ .sidebar {
+            width: 230px;
+            background-color:  rgb(0, 0, 0);
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            
+            
+        }
+        .pic{           
+            text-align: center;
+        }
+        .pic img{
+            border-radius: 20%;
+            width: 70%;
+        
+        }
+        .pic img:hover{
+            /* transform: translateY(-10%);
+            transition: 0.3s ease; */
+            
+        }
+
+        .left h5{
+            font-family:serif;
+        }
+        .left button{
+            border: none;
+            background-color:  rgb(0, 0, 0);
+            color:#fff;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 10px;
+            width: 100%;
+            padding-bottom: 12px;
+            padding-top: 16px;
+        }
+.left button:hover{
+    background-color: #2EC866;
+    /* width: 100%; */
+    border-radius: 9px;
+
+}
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: rgb(0, 0, 0);
+            padding: 20px 20px;
+            width: 100%;
+            position: fixed;
+            margin-left: 5px;
+
+        }
+       
+
+
+ .navbar input[type='text']{
+    width: 30%;
+    padding: 8px;
+    border:none;
+    margin-left: 27%;
+    background-color: rgb(0, 0, 0) ;
+    align-content: center;
+    outline: 0;
+    border-bottom: 1px solid white;
+ }
+ .navbar input[type='text']:hover{
+border-bottom: 3px solid white;
+ }
+ .navbar input[placeholder='enter movie name']{
+    text-align: center;
+    font-size: 16px;
+    color: rgb(4, 5, 5);
+ }
+ .navbar button{
+    float: right;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-size:16px;
+    margin-left: 65px;
+    font-weight: 80px;
+    color: rgb(240, 240, 240);
+    background-color: rgb(0, 0, 0) ;
+ }
+ .navbar button:hover{
+    background-color:#2EC866;
+    width: 7%;
+    border-radius: 8px;
+    transition: 0.5s ease-in;
+    
+ }
+ .content{
+    flex: 1;
+    
+ }
+
+ .movie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  margin-top: 3%;
+}
+
+.movie-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-card img {
+  width: 100%;
+  height: auto;
+}
+
+.movie-card h3 {
+  padding: 10px;
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.movie-card p {
+  padding: 0 10px 10px;
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+hr{
+    color: white;
+}
+
+.left i{
+    margin-right: 45px;
+    font-size: 23px;  
+}
+.left button{
+    display: flex;
+}
+.bigpic{
+    padding-top: 120px;
+    text-align: center;
+}
+.bigpic img{
+    width: 670px;
+    height: 290px;
+    opacity: 1;
+    /* display: block; */
+    /* backface-visibility: hidden; */
+
+}
+.bigpic img:hover{
+    box-sizing: border-box;
+    box-shadow: 19px 13px 16px black;
+       transform: translateY(-2%);
+             transition: 0.3s ease; 
+             opacity: 1;
+
+}
+.bigpic{
+    position: relative;
+  text-align: center;
+  color: white;
+}
+.Bottom-left{
+    position: absolute;
+  transition: .5s ease;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  color: rgb(255, 255, 255);
+background-color:rgb(12, 8, 8);
+box-sizing: border-box;
+border-radius: 15px;
+font-family:Arial, Helvetica, sans-serif;
+ 
+}
+.Bottom-left p{
+    font-size: 12px;
+    /* overflow: hidden; */
+   
+
+}
+.Bottom-left:hover{
+    overflow: visible;
+    opacity: 1;
+  
+   
+}
+
+    </style>
+</head>
+<body>
+    <div class="whole">
+       
+        <aside class="sidebar">
+            <div class="pic">
+            <img src="image (1).png" alt="logo"/><hr>
+            
+        </div>
+        <div class="left">
+            <h5>Categories</h5>
+           <button><i class="fa fa-star-o"></i>  Popular</button>
+        <button><i class="fa fa-angle-double-up"></i>Top Rated</button>
+    <button><i class="fa fa-film"></i>Upcoming</button>
+        <hr>
+           <button><i class="fa fa-hand-rock-o"> </i>  Action</button>
+           <button><i class="fa fa-anchor"></i>Adventure</button>
+       <button><i class="fa fa-drupal"></i>Animation</button>
+            
+              <button><i class="fa fa-smile-o"> </i>  Comedy</button>
+              <button><i class="fa fa-search"></i>  Crime</button>
+          <button><i class="fa fa-file-movie-o"></i>Documentary</button>
+                
+                 <button><i class="fa fa-tripadvisor"> </i>  Drama</button>
+                 <button><i class="fa fa fa-group"></i>Family</button>
+             <button><i class="	fa fa-magic"></i>Fantasy</button>
+                    
+                    <button><i class="fa fa-hourglass"></i>  History</button>
+                    <button><i class="fa fa-optin-monster"></i>Horror</button>
+                <button><i class="fa  fa-music"></i>Music</button>
+
+                <button><i class="fa fa-user-secret"> </i>  Mystery</button>
+                <button><i class="	fa fa-gittip"></i>Romance</button>
+            <button><i class="fa fa-grav"></i>Science Fiction</button>
+                   
+                   <button><i class="fa fa-television"> </i>  Tv Movie</button>
+                   <button><i class="fa fa-eye"></i>Thriller</button>
+               <button><i class="fa fa-shield"> </i>War</button>
+               <button><i class="fa fa-neuter"></i>Western</button>
+
+                       
+
+        </div>    
+            
+        </aside>
+        <!-- from here the nav bar and body below -->
+        <div class="content">
+        <div class="navbar">
+            <input type="text" placeholder="search movie name" id="">
+            <button class="bot">Login  <i class="fa fa-male"></i></button>
+        </div>
+        <div class="bigpic">
+            <img src="https://static1.colliderimages.com/wordpress/wp-content/uploads/2021/08/the-boys-season-3.jpg" alt="the boys">
+            <div class="Bottom-left">
+               <h2> The boys</h2>
+                <p>The world's most powerful superheroes ('Supes') are secretly bending society to its whims,<br> 
+                    until the underdog team 'The Boys', victims of the 'Supes', conjure up a plan to take<br>
+                     down 'The Seven' and 'Vought International' once and for all. <br>
+                    Fighting a never ending conspiracy of corporate espionage, deep-cutting secrets <br>
+                    and nigh-Godly figures,'The Boys' will do whatever it takes to save the world from its corrupt<br> 
+                    'superheroes' before they become unstoppable--or die trying.</p>
+                
+
+            </div>
+        </div>
+        
+        <div class="movie-grid">
+            <div class="movie-card">
+                <img src="https://www.slashfilm.com/wp/wp-content/images/zz69e078c9.jpg" alt="Movie 1">
+                <h3> Inception </h3>
+                <p>Release Year: 2023</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://i.ebayimg.com/images/g/W1gAAOSws2Fi9ZYB/s-l400.jpg" alt="Movie 1">
+                <h3>Tenet</h3>
+                <p>Release Year: 2023</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://www.tallengestore.com/cdn/shop/products/JurassicWorld-FallenKingdom-HollywoodSciFiMoviePoster3_18fea14e-40de-44c2-9faa-a42fab5eb1a2.jpg?v=1648215529" alt="Movie 1">
+                <h3>Jurassic World</h3>
+                <p>Release Year: 2023</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://i.ebayimg.com/images/g/ePgAAOSwKJ1fjWaR/s-l1200.jpg" alt="Movie 1">
+                <h3>The Lion King</h3>
+                <p>Release Year: 2023</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://cdn11.bigcommerce.com/s-yzgoj/images/stencil/1280x1280/products/2890232/5971573/MOVAB39455__99535.1679612768.jpg?c=2" alt="Movie 1">
+                <h3>Fast and Furious 8</h3>
+                <p>Release Year: 2023</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://www.tallengestore.com/cdn/shop/products/Joker_-_Put_On_A_Happy_Face_-_Joaquin_Phoenix_-_Hollywood_English_Movie_Poster_3_de5e4cfc-cfd4-4732-aad1-271d6bdb1587.jpg?v=1579504979" alt="Movie 1">
+                <h3>Joker</h3>
+                <p>Release Year: 2023</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://rukminim2.flixcart.com/image/850/1000/jn3hocw0/poster/j/s/q/medium-hollywood-movie-wall-poster-pirates-of-the-caribbean-dead-original-imaf9uv7zzgp6wvg.jpeg?q=90&crop=false" alt="Movie 1">
+                <h3>Pirates of the Caribbean</h3>
+                <p>Release Year: 2023</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://m.media-amazon.com/images/I/71eHZFw+GlL._AC_UF894,1000_QL80_.jpg" alt="Movie 1">
+                <h3>Avengers (Infinity war)</h3>
+                <p>Release Year: 2023</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQumoM_wfMUBakw85u8aLEWcLSsCw6mbYl3vg&s" alt="Movie 1">
+                <h3>World War-Z</h3>
+                <p>Release Year: 2023</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://i.pinimg.com/236x/a3/e9/36/a3e936aaf635d8c92d67e7cb40fed75e.jpg" alt="Movie 1">
+                <h3>Vina</h3>
+                <p>Release Year: 2023</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://i.ebayimg.com/images/g/2AAAAOSwpOhjQAXg/s-l1200.jpg" alt="Movie 1">
+                <h3>Thor -The Dark World</h3>
+                <p>Release Year: 2023</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://i.ebayimg.com/00/s/MTYwMFgxMTE5/z/URcAAOSwC31jZQ11/$_57.JPG?set_id=8800005007" alt="Movie 1">
+                <h3>Avatar</h3>
+                <p>Release Year: 2023</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT81eoZ8hEtXX7QCnds79LcHqDD3ODKlzLM9Q&s" alt="Movie 1">
+                <h3>Hobbit</h3>
+                <p>Release Year: 2023</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://www.tallengestore.com/cdn/shop/products/TheConjuring2-HollywoodEnglishHorrorMoviePoster_c8d4b4d6-c805-47eb-bbdf-498a41e5bcf2.jpg?v=1625220797" alt="Movie 1">
+                <h3>The Conjuring-2</h3>
+                <p>Release Year: 2023</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzSjn73fKv14a6Et25s1VQeCRAN0BzzkVBkw&s" alt="Movie 1">
+                <h3>Transformers</h3>
+                <p>Release Year: 2023</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVtnwLu33nSEZJ9inBscgQ8NKEbSov9xyJWwn8rF6P_q_HICZuLe3FrJWyzYztbZGv54A&usqp=CAU" alt="Movie 1">
+                <h3>The Dark Knight</h3>
+                <p>Release Year: 2023</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN5qYnituboQhuIYq7C4eB_u7TQYQjvcllDw&s" alt="Movie 1">
+                <h3>Wolf Man</h3>
+                <p>Release Year: 2023</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzYSTHcWfiCEgZuPsrehvVVUMkGs4E94biDw&s" alt="Movie 1">
+                <h3>Insidious</h3>
+                <p>Release Year: 2023</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://rukminim2.flixcart.com/image/720/864/poster/z/g/b/deadpool-comic-book-character-hollywood-movie-poster-original-imaecjz68dxa4ygf.jpeg?q=60&crop=false" alt="Movie 1">
+                <h3>DeadPool</h3>
+                <p>Release Year: 2023</p>
+            </div>
+            <div class="movie-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqoFG_0OA4WGrANuaoVFKcRX1vOE_mE8_c0w&s" alt="Movie 1">
+                <h3>Lord of Rings</h3>
+                <p>Release Year: 2023</p>
+            </div>
+           
+                
+            
+        </div>
+      
+
+    </div>
+    </div>
+        
+    
+</body>
+</html>
